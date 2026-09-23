@@ -1,0 +1,74 @@
+
+/* CONFIG PADRÃO */
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Syne:wght@400..800&display=swap');
+
+:root {
+    ---branco: #FDF9F9;
+    ---roxo: #1E0948;
+    ---ciano: #AFF3D2;
+    ---rosa: #FFC2DA;
+}
+
+body {
+    background-color: var(---branco);
+    color: var(---roxo);
+    font-family: "Special Gothic", sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Syne", sans-serif;
+    font-weight: 500;
+}
+
+p {
+    font-family: "Special Gothic", sans-serif;
+}
+
+/* NAVEGAÇÃO */
+nav{
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: auto;
+}
+
+nav ul li {
+    display: block;
+    text-align: center;
+    padding: 10px 14px;
+    text-decoration: none;
+}
+  
+nav ul li:hover {
+    background-color: var(---rosa);
+    border-radius: 40px;
+}
+
+/* APRESENTAÇÃO */
+.apresentacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.apresentacao div {
+    width: 40%;
+}
+.apresentacao img{
+    width: 400px;
+    justify-content: flex-end;
+}
+
+/**/
