@@ -1,6 +1,21 @@
+/* =========================================================
+   ÍNDICE
+   1. Variáveis (cores)
+   2. Base (body, títulos, textos)
+   3. Topo (.comeco)
+   4. Navegação
+   5. Apresentação (título grande)
+   6. Círculos girando
+   7. Fita (texto andando)
+   8. Sobre mim
+   9. Habilidades (título + cards)
+   10. Responsivo (tablet e celular)
+   ========================================================= */
 
-/* CONFIG PADRÃO */
 
+/* =========================================================
+   1. VARIÁVEIS (CORES)
+   ========================================================= */
 :root {
     ---branco: #fff4fb;
     ---roxo: #0b011f;
@@ -8,9 +23,15 @@
     ---rosa: #fc7aae;
 }
 
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+
+/* cor do texto quando é selecionado com o mouse */
 ::selection {
-  background-color: var(---ciano); /* Cor de fundo amarela ao selecionar */
-  color: var(---roxo);           /* Cor do texto preto ao selecionar */
+    background-color: var(---ciano);
+    color: var(---roxo);
 }
 
 body {
@@ -27,14 +48,14 @@ h1 {
     margin: 5px 0;
 }
 
-h2{
+h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
     font-size: 40px;
     margin: 5px 0;
-    
 }
-h3{
+
+h3 {
     font-weight: 600;
     font-size: 15px;
     text-transform: uppercase;
@@ -45,47 +66,69 @@ p {
 }
 
 hr {
-    background-color: #fff4fbb6;
+    background-color: #0b011f79;
     border: none;
     height: 1px;
 }
 
+/* espaçamento padrão de todas as seções */
+section {
+    padding: 90px;
+}
+
+/* etiqueta */
 .nome-secao {
     margin: 0 0 50px 0;
 }
 
-section{
-    padding: 90px;
-}
 
-/* Comeco */
+/* =========================================================
+   3. TOPO
+   ========================================================= */
 .comeco {
     background-image: url(img/cloud1.png);
     background-size: cover;
     height: 630px;
     margin: 0;
     padding: 0;
+    position: relative;   /* referência para posicionar os círculos */
+    overflow: hidden;     /* esconde a parte dos círculos que sai da tela */
+}
+.comeco hr {
+    background-color: #fff4fb94;
 }
 
-/* NAVEGAÇÃO */
-nav{
+/* nav e título ficam na frente dos círculos */
+.comeco > nav,
+.comeco > hr,
+.comeco > .apresentacao {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   4. NAVEGAÇÃO
+   ========================================================= */
+nav {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
     font-size: 14px;
     font-weight: 450;
     letter-spacing: 2px;
-    padding-top: 10px;
-    align-items: center;
-
 }
 
+/* logo */
 nav h2 {
     color: var(---rosa);
     letter-spacing: -1px;
     font-size: 25px;
 }
 
-nav ul{
+/* lista de links */
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -101,41 +144,83 @@ nav ul li {
     text-decoration: none;
 }
 
-nav a{
+nav a {
     text-decoration: none;
-}  
+}
+
 nav a:hover {
     color: var(---rosa);
 }
 
-/* APRESENTAÇÃO */
-.apresentacao{
-    align-items: center;
-}
-.apresentacao img{
-    width: 400px;
-    justify-content: flex-end;
+
+/* =========================================================
+   5. APRESENTAÇÃO
+   clamp(mínimo, ideal, máximo): o tamanho acompanha a largura da tela
+   ========================================================= */
+.apresentacao h1 {
+    font-size: clamp(52px, 10vw, 130px);
+    margin: 100px 0 0 0;
+    letter-spacing: -0.05em;
 }
 
-.apresentacao h3{
-    font-size: 13px;
-    font-weight: 450;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-.apresentacao h1{
-    font-size: 130px;
-    margin: 200px 0 0 0;
-    letter-spacing: -7px;
-}
-.apresentacao h2{
-    font-size: 130px;
+.apresentacao h2 {
+    font-size: clamp(34px, 10vw, 130px);
     margin: 0 90px;
     font-style: italic;
     color: var(---rosa);
 }
 
-/* FITA */
+
+/* =========================================================
+   6. CÍRCULOS GIRANDO
+   ========================================================= */
+
+/* círculo grande (parado) no canto superior direito */
+.circulo {
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid var(---branco);
+    border-radius: 50%;
+    pointer-events: none;   /* não atrapalha cliques */
+}
+
+/* círculo pequeno (gira) dentro do grande */
+.circulo2 {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(---branco);
+    border-radius: 50%;
+    animation: girar 15s linear infinite;
+}
+
+/* bolinha na borda: é ela que mostra o giro */
+.circulo2::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(---rosa);
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+
+/* =========================================================
+   7. FITA
+   o texto está duplicado no HTML: o trilho anda até -50%
+   e recomeça, sem "pulo" visível
+   ========================================================= */
 .fita {
     overflow: hidden;
     white-space: nowrap;
@@ -162,22 +247,32 @@ nav a:hover {
     to   { transform: translateX(-50%); }
 }
 
-/* SOBRE MIM */
-.sobre-mim h1{
+
+/* =========================================================
+   8. SOBRE MIM
+   ========================================================= */
+.sobre-mim h1 {
     font-size: 20px;
 }
-.sobre-mim h2{
+
+.sobre-mim h2 {
     font-size: 50px;
     font-style: italic;
 }
 
+/* texto à esquerda, foto à direita */
 .colunas2 {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
 }
 
-.colunas2 img{
+.colunas2 .side {
+    flex: 1;
+    min-width: 0;
+}
+
+.colunas2 img {
     border: 1px solid var(---roxo);
     background-color: var(---ciano);
     margin: -70px 0 0 90px;
@@ -186,24 +281,244 @@ nav a:hover {
     height: auto;
 }
 
-.colunas2 .side {
-    flex: 1;
-    min-width: 0;
-}
 
-/* em telas pequenas, uma coluna embaixo da outra */
-@media (max-width: 768px) {
-    .colunas2 {
-        flex-direction: column;
-    }
-}
-
-/* HABILIDADES */
+/* =========================================================
+   9. HABILIDADES
+   ========================================================= */
 .habilidades {
     background-image: url(img/halftone_cloud.png);
     background-size: cover;
-    height: 700px;
     margin: 0;
-    padding: 0;
     border: 1px solid var(---roxo);
+}
+
+/* --- título + texto ao lado --- */
+.titulo-skills {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 70px;
+}
+
+.titulo-skills h1 {
+    font-size: 90px;
+    line-height: 0.95;
+    letter-spacing: -4px;
+    max-width: 600px;
+}
+
+.titulo-skills p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    max-width: 370px;
+    line-height: 1.6;
+}
+
+/* --- grid de 12 colunas: cada card ocupa uma largura diferente --- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+}
+
+.card:nth-child(1) { grid-column: span 4; }
+.card:nth-child(2) { grid-column: span 5; }
+.card:nth-child(3) { grid-column: span 3; }
+.card:nth-child(4) { grid-column: span 3; }
+.card:nth-child(5) { grid-column: span 5; }
+.card:nth-child(6) { grid-column: span 4; }
+
+/* --- card --- */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   /* número em cima, título embaixo */
+    min-height: 225px;
+    padding: 28px;
+    border: 1px solid var(---roxo);
+    background-color: var(---branco);
+    color: var(---roxo);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* número + sinal de "+" */
+.card-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.card-mais {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 0.6;
+    transition: transform 0.3s ease;
+}
+
+.card h3 {
+    font-size: 30px;
+    text-transform: none;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin: 0 0 10px 0;
+}
+
+.card p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: inherit;
+    opacity: 0.75;
+}
+
+/* --- cores de destaque --- */
+.card-rosa  { background-color: var(---rosa); }
+.card-ciano { background-color: var(---ciano); }
+.card-roxo  { background-color: var(---roxo); color: var(---branco); }
+
+/* --- hover: o card sobe, ganha sombra e o + vira x --- */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 6px 6px 0 var(---roxo);
+}
+
+.card:hover .card-mais {
+    transform: rotate(45deg);
+}
+
+/* cards claros ficam roxos no hover */
+.card:not(.card-rosa):not(.card-ciano):not(.card-roxo):hover {
+    background-color: var(---roxo);
+    color: var(---branco);
+}
+
+.card-roxo:hover {
+    box-shadow: 6px 6px 0 var(---rosa);
+}
+
+
+/* =========================================================
+   10. RESPONSIVO
+   ========================================================= */
+
+/* ---------- TABLET (até 1024px) ---------- */
+@media (max-width: 1024px) {
+    /* base */
+    section { padding: 70px 40px; }
+
+    /* topo */
+    .comeco { padding: 0; }
+    .apresentacao { padding: 0 40px; }
+    .apresentacao h2 { margin: 0 0 0 40px; }
+
+    /* sobre mim */
+    .colunas2 img { margin: 0 0 0 40px; width: 320px; }
+
+    /* habilidades: 2 cards por linha */
+    .titulo-skills h1 { font-size: 64px; }
+    .card:nth-child(n) { grid-column: span 6; }
+}
+
+/* ---------- CELULAR (até 768px) ---------- */
+@media (max-width: 768px) {
+    /* base */
+    section { padding: 60px 20px; }
+    .nome-secao { margin-bottom: 30px; }
+
+    /* nav: logo e contato em cima, links embaixo */
+    nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 20px 0;
+        letter-spacing: 1px;
+        font-size: 12px;
+    }
+
+    nav ul {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    nav ul li { padding: 10px 0; }
+
+    /* topo */
+    .comeco {
+        height: auto;
+        min-height: 520px;
+        padding: 0 0 60px;
+    }
+
+    .apresentacao { padding: 0 20px; }
+    .apresentacao h1 { margin-top: 150px; }
+    .apresentacao h2 { margin: 0 0 0 20px; }
+
+    /* círculos menores */
+    .circulo {
+        width: 300px;
+        height: 300px;
+        top: -90px;
+        right: -110px;
+    }
+
+    .circulo2 {
+        width: 120px;
+        height: 120px;
+        bottom: 35px;
+        left: 35px;
+    }
+
+    .circulo2::before {
+        top: 12px;
+        left: 12px;
+        width: 10px;
+        height: 10px;
+    }
+
+    /* sobre mim: texto em cima, foto embaixo */
+    .colunas2 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    .sobre-mim h2 { font-size: 36px; }
+
+    .colunas2 img {
+        margin: 0;
+        width: 100%;
+        max-width: 400px;
+        align-self: center;
+    }
+
+    /* habilidades: 1 card por linha */
+    .titulo-skills {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .titulo-skills h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .card:nth-child(n) { grid-column: span 12; }
+
+    .card {
+        min-height: 110px;
+        padding: 22px;
+    }
+
+    .card h3 { font-size: 26px; }
+}
+
+/* ---------- TELAS DE TOQUE ---------- */
+/* sem mouse, o hover não fica "preso" depois do toque */
+@media (hover: none) {
+    .card:hover { transform: none; box-shadow: none; }
 }

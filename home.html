@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +8,41 @@
 </head>
 <body>
 
+    <!-- ==================== TOPO ==================== -->
     <section class="comeco">
-        
+
+        <!-- círculos decorativos (o pequeno gira) -->
+        <div class="circulo" aria-hidden="true">
+            <div class="circulo2"></div>
+        </div>
+
+        <!-- navegação -->
         <nav>
             <h2>MeskDev</h2>
 
             <ul>
-                <a href="#sobre-mim"><li>SOBRE MIM</li></a>
-                <a href=""><li>PROJETOS</li></a>
-                <a href=""><li>HABILIDADES</li></a>
-                
+                <li><a href="#sobre-mim">SOBRE MIM</a></li>
+                <li><a href="">PROJETOS</a></li>
+                <li><a href="">HABILIDADES</a></li>
             </ul>
+
             <a href="">CONTATO</a>
         </nav>
         <hr>
 
+        <!-- título principal -->
         <section class="apresentacao">
             <div id="titulo">
-                
                 <h1>CODIGO +</h1>
                 <h2>CRIATIVIDADE.</h2>
-                
             </div>
-            <div class="circulo"></div>
         </section>
+
     </section>
-    
+
+
+    <!-- ==================== FITA ==================== -->
+    <!-- o texto é repetido duas vezes para a animação não ter "buraco" -->
     <div class="fita">
         <div class="fita-trilho">
             <p>DEV FULL-STACK IN TRAINING • JAVASCRIPT • DESIGN • HTML & CSS • DEV FULL-STACK IN TRAINING • JAVASCRIPT • DESIGN • HTML & CSS • </p>
@@ -41,10 +50,13 @@
         </div>
     </div>
 
+
+    <!-- ==================== 01 — SOBRE MIM ==================== -->
     <section class="sobre-mim" id="sobre-mim">
         <p class="nome-secao">01 — SOBRE MIM</p>
 
         <div class="colunas2">
+            <!-- texto -->
             <div class="side">
                 <h1>HELLO WORLD!</h1>
                 <h2>Me chamo Meskita</h2>
@@ -52,22 +64,123 @@
                 <p>Estudante de Ciência da Computação que une design e programação. Com experiência em desenvolvimento web, branding e criação visual, crio projetos que alinham lógica, estética e funcionalidade.</p>
                 <p>Acredito que um bom profissional de tecnologia precisa ter uma base ampla e curiosidade constante, explorando diferentes áreas até encontrar sua especialização. Por isso, estou sempre buscando aprender, evoluir e transformar ideias em projetos reais.</p>
             </div>
+
+            <!-- foto -->
             <img src="img/halftone_ME2.png" alt="">
         </div>
     </section>
 
+
+    <!-- ==================== 02 — HABILIDADES ==================== -->
     <section class="habilidades">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab optio at debitis! A corrupti aspernatur molestiae. Placeat, vel quasi doloremque unde voluptates nulla fuga. Voluptatem possimus quo fugiat dolores omnis!</p>
+        <p class="nome-secao">02 — HABILIDADES</p>
+
+        <div class="titulo-skills">
+            <h1>MEU<br>TECH KIT.</h1>
+            <p>Competências de código, design e inteligência artificial que se conectam para transformar ideias em aplicações reais e completas.</p>
+        </div>
+
+        <!-- cards -->
+        <div class="cards">
+
+            <!-- card 01 -->
+            <article class="card">
+                <div class="card-topo">
+                    <span>01</span>
+                    <span class="card-mais">+</span>
+                </div>
+                <div>
+                    <h3>Front-end Web</h3>
+                    <p>HTML5, CSS3, JavaScript & Tailwind</p>
+                </div>
+            </article>
+
+            <!-- card 02 -->
+            <article class="card card-rosa">
+                <div class="card-topo">
+                    <span>02</span>
+                    <span class="card-mais">+</span>
+                </div>
+                <div>
+                    <h3>Ecossistema React</h3>
+                    <p>Aplicações modernas com Next.js & TypeScript</p>
+                </div>
+            </article>
+
+            <!-- card 03 -->
+            <article class="card">
+                <div class="card-topo">
+                    <span>03</span>
+                    <span class="card-mais">+</span>
+                </div>
+                <div>
+                    <h3>UI/UX & Branding</h3>
+                    <p>Identidade visual, Figma & design intuitivo</p>
+                </div>
+            </article>
+
+            <!-- card 04 -->
+            <article class="card card-ciano">
+                <div class="card-topo">
+                    <span>04</span>
+                    <span class="card-mais">+</span>
+                </div>
+                <div>
+                    <h3>AI Workflows</h3>
+                    <p>IA integrada a apps & sites, usada com consciência</p>
+                </div>
+            </article>
+
+            <!-- card 05 -->
+            <article class="card">
+                <div class="card-topo">
+                    <span>05</span>
+                    <span class="card-mais">+</span>
+                </div>
+                <div>
+                    <h3>Back-end & BaaS</h3>
+                    <p>Bancos de dados, Supabase, Stripe & Node.js</p>
+                </div>
+            </article>
+
+            <!-- card 06 -->
+            <article class="card card-roxo">
+                <div class="card-topo">
+                    <span>06</span>
+                    <span class="card-mais">+</span>
+                </div>
+                <div>
+                    <h3>Tools</h3>
+                    <p>Git & GitHub, Blender 3D & Kittl</p>
+                </div>
+            </article>
+
+        </div>
     </section>
 
+
+    <!-- ==================== 03 — PROJETOS ==================== -->
     <section class="projetos">
+        <p class="nome-secao">02 — PROJETOS</p>
+
+        <div class="titulo-skills">
+            <h1>PROJETOS<br>SELECIONADOS.</h1>
+            <p>Aplicações web, identidades visuais e projetos pessoais que demonstram minha evolução contínua e paixão por construir.</p>
+        </div>
+        <hr>
+
         
     </section>
 
+
+    <!-- ==================== 04 — CONTATO ==================== -->
     <section class="contato">
-        
+
     </section>
 
+
+    <!-- ==================== RODAPÉ ==================== -->
     <footer></footer>
+
 </body>
 </html>
