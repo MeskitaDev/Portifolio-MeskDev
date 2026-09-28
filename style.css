@@ -74,6 +74,11 @@ p {
     color: var(---roxo);
 }
 
+/* nenhuma imagem passa da largura do espaço dela */
+img {
+    max-width: 100%;
+}
+
 hr {
     background-color: #0b011f79;
     border: none;
@@ -177,8 +182,10 @@ nav a:hover {
     letter-spacing: -0.05em;
 }
 
+/* "CRIATIVIDADE." ocupa ~8.5x o tamanho da letra:
+   (largura da tela - espaços laterais) / 8.5 = maior tamanho que cabe */
 .apresentacao h2 {
-    font-size: clamp(34px, 10vw, 130px);
+    font-size: min(130px, calc((100vw - 380px) / 8.5));
     margin: 0 90px;
     font-style: italic;
     color: var(---rosa);
@@ -316,13 +323,13 @@ nav a:hover {
 }
 
 .titulo-skills h1 {
-    font-size: 90px;
+    font-size: clamp(40px, 6vw, 90px);
     line-height: 0.95;
     letter-spacing: -4px;
-    max-width: 600px;
 }
 
 .titulo-skills p {
+    flex: 0 1 370px;   /* até 370px, mas pode encolher */
     font-family: Georgia, 'Times New Roman', Times, serif;
     max-width: 370px;
     line-height: 1.6;
@@ -372,7 +379,7 @@ nav a:hover {
 }
 
 .card h3 {
-    font-size: 30px;
+    font-size: clamp(22px, 2.2vw, 30px);
     text-transform: none;
     letter-spacing: -1px;
     line-height: 1.1;
@@ -425,7 +432,8 @@ nav a:hover {
 /* cada projeto: número | imagem | informações */
 .projeto {
     display: grid;
-    grid-template-columns: 60px 400px 1fr;
+    /* imagem com 35% da largura (em vez de 400px fixos) para sobrar espaço ao texto */
+    grid-template-columns: 60px 35% minmax(0, 1fr);
     gap: 40px;
     padding: 40px 0;
     border-bottom: 1px solid var(---roxo);
@@ -467,7 +475,7 @@ nav a:hover {
     padding-top: 40px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(32px, 4vw, 64px);
     letter-spacing: -0.04em;
     line-height: 1;
 }
@@ -652,6 +660,7 @@ nav a:hover {
 .rodape a {
     color: var(---roxo);
     text-decoration: none;
+    overflow-wrap: anywhere;   /* o e-mail quebra linha em telas bem pequenas */
 }
 
 .rodape a:hover {
@@ -715,20 +724,42 @@ nav a:hover {
     /* topo */
     .comeco { padding: 0; }
     .apresentacao { padding: 0 40px; }
-    .apresentacao h2 { margin: 0 0 0 40px; }
+    .apresentacao h2 {
+        margin: 0 0 0 40px;
+        font-size: calc((100vw - 120px) / 8.5);
+    }
 
     /* sobre mim */
     .colunas2 img { margin: 0 0 0 40px; width: 320px; }
 
-    /* habilidades: 2 cards por linha */
+    /* títulos de habilidades e projetos: texto embaixo do título */
+    .titulo-skills {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 50px;
+    }
+
     .titulo-skills h1 { font-size: 64px; }
+    .titulo-skills p { flex: none; max-width: 520px; }
+
+    /* habilidades: 2 cards por linha */
     .card:nth-child(n) { grid-column: span 6; }
+    .card h3 { font-size: 26px; }
 
     /* projetos: imagem menor */
     .projeto {
-        grid-template-columns: 40px 280px 1fr;
+        grid-template-columns: 40px 280px minmax(0, 1fr);
         gap: 24px;
     }
+
+    /* contato: título em cima, formulário embaixo */
+    .contato-conteudo {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .form-contato { max-width: 560px; }
 }
 
 /* ---------- CELULAR (até 768px) ---------- */
@@ -763,7 +794,10 @@ nav a:hover {
 
     .apresentacao { padding: 0 20px; }
     .apresentacao h1 { margin-top: 150px; }
-    .apresentacao h2 { margin: 0 0 0 20px; }
+    .apresentacao h2 {
+        margin: 0 0 0 20px;
+        font-size: calc((100vw - 60px) / 8.5);
+    }
 
     /* círculos menores */
     .circulo {
@@ -804,14 +838,11 @@ nav a:hover {
     }
 
     /* habilidades: 1 card por linha */
-    .titulo-skills {
-        flex-direction: column;
-        gap: 16px;
-        margin-bottom: 40px;
-    }
+    .titulo-skills { margin-bottom: 40px; }
 
+    /* "SELECIONADOS." precisa caber em telas de 320px */
     .titulo-skills h1 {
-        font-size: 48px;
+        font-size: min(48px, calc((100vw - 40px) / 8.5));
         letter-spacing: -2px;
     }
 
@@ -831,6 +862,8 @@ nav a:hover {
         padding: 30px 0;
     }
 
+    .projeto-img { width: 100%; }
+
     .projeto h2 { padding-top: 10px; }
 
     .projeto-seta {
@@ -838,18 +871,12 @@ nav a:hover {
         height: 46px;
     }
 
-    /* contato: título em cima, formulário embaixo */
-    .contato-conteudo {
-        flex-direction: column;
-        gap: 40px;
-        margin-bottom: 60px;
-    }
-
+    /* contato: formulário na largura toda */
     .form-contato { max-width: none; }
 
     .form-contato button {
-        width: 110px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
     }
 
     /* rodapé: um item embaixo do outro */
