@@ -26,7 +26,7 @@
                 <li><a href="">HABILIDADES</a></li>
             </ul>
 
-            <a href="">CONTATO</a>
+            <a href="#contato">CONTATO</a>
         </nav>
         <hr>
 
@@ -161,26 +161,129 @@
 
     <!-- ==================== 03 — PROJETOS ==================== -->
     <section class="projetos">
-        <p class="nome-secao">02 — PROJETOS</p>
+        <p class="nome-secao">03 — PROJETOS</p>
 
         <div class="titulo-skills">
             <h1>PROJETOS<br>SELECIONADOS.</h1>
             <p>Aplicações web, identidades visuais e projetos pessoais que demonstram minha evolução contínua e paixão por construir.</p>
         </div>
-        <hr>
+        <!-- lista de projetos: cada projeto inteiro é um link -->
+        <div class="projetos-lista">
 
-        
+            <!-- projeto 01 -->
+            <a class="projeto" href="https://gestao-osc.vercel.app/" target="_blank" rel="noopener">
+                <span class="projeto-numero">01</span>
+
+                <img class="projeto-img" src="img/gestãoOSC-app.png" alt="Tela do app Gestão OSC">
+
+                <div class="projeto-info">
+                    <div class="projeto-meta">
+                        <span>SaaS em produção • Full-stack & AI</span>
+                        <span>2026</span>
+                    </div>
+
+                    <h2>GESTÃO OSC</h2>
+
+                    <div class="tags">
+                        <span>Next.js</span>
+                        <span>TypeScript</span>
+                        <span>Tailwind CSS</span>
+                        <span>Supabase</span>
+                        <span>Stripe</span>
+                        <span>Google Gemini AI</span>
+                    </div>
+
+                    <div class="projeto-rodape">
+                        <p>Plataforma SaaS completa para gestão de organizações da sociedade civil. Inclui sistema de permissões, gestão de tarefas, pagamentos via Stripe e análise inteligente de documentos com Google Gemini.</p>
+                        <span class="projeto-seta" aria-hidden="true">→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- projeto 02 -->
+            <a class="projeto" href="https://dilueart.com.br/" target="_blank" rel="noopener">
+                <span class="projeto-numero">02</span>
+
+                <img class="projeto-img" src="img/dilue-id.jpg" alt="Identidade visual da Dilue Art">
+
+                <div class="projeto-info">
+                    <div class="projeto-meta">
+                        <span>Projeto real • Branding & Web Dev</span>
+                        <span>2025</span>
+                    </div>
+
+                    <h2>DILUE ART</h2>
+
+                    <div class="tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Identidade Visual</span>
+                        <span>Branding</span>
+                    </div>
+
+                    <div class="projeto-rodape">
+                        <p>Criação e desenvolvimento completo do site institucional da marca, unindo identidade visual autoral, estrutura responsiva e navegação focada em experiência do usuário.</p>
+                        <span class="projeto-seta" aria-hidden="true">→</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
     </section>
 
 
     <!-- ==================== 04 — CONTATO ==================== -->
-    <section class="contato">
+    <section class="contato" id="contato">
+        <p class="nome-secao">04 — CONTATO</p>
 
+        <div class="contato-conteudo">
+            <!-- título -->
+            <div class="contato-titulo">
+                <h1>TEM UMA IDEIA?</h1>
+                <h2>FALE COMIGO.</h2>
+            </div>
+
+            <!-- formulário (enviado pelo FormSubmit para o seu e-mail) -->
+            <form class="form-contato" action="https://formsubmit.co/julia.sousamesq@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Novo contato pelo portfólio">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" class="form-escondido" tabindex="-1" autocomplete="off">
+
+                <label>
+                    Nome
+                    <input type="text" name="nome" required>
+                </label>
+
+                <label>
+                    E-mail
+                    <input type="email" name="email" required>
+                </label>
+
+                <div id="side">
+                    <label>
+                        Mensagem
+                        <textarea name="mensagem" rows="4" required></textarea>
+                    </label>
+
+                    <button type="submit">ENVIAR <span aria-hidden="true">→</span></button>
+                </div>
+                </form>
+        </div>
+
+        <!-- ==================== RODAPÉ ==================== -->
+        <footer class="rodape">
+            <a href="mailto:julia.sousamesq@gmail.com">julia.sousamesq@gmail.com</a>
+
+            <ul class="rodape-links">
+                <li><a href="">GITHUB</a></li>
+                <li><a href="">LINKEDIN</a></li>
+                <li><a href="">CURRÍCULO</a></li>
+            </ul>
+
+            <p>© 2026 MeskDev • Brasília, DF</p>
+        </footer>
     </section>
-
-
-    <!-- ==================== RODAPÉ ==================== -->
-    <footer></footer>
 
 </body>
 </html>

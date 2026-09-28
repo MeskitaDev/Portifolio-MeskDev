@@ -9,7 +9,10 @@
    7. Fita (texto andando)
    8. Sobre mim
    9. Habilidades (título + cards)
-   10. Responsivo (tablet e celular)
+   10. Projetos
+   11. Contato (formulário)
+   12. Rodapé
+   13. Responsivo (tablet e celular)
    ========================================================= */
 
 
@@ -77,9 +80,14 @@ section {
 }
 
 /* etiqueta */
-.nome-secao {
+.nome-secao, #sobre, #numero, #ano {
     margin: 0 0 50px 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
+
 
 
 /* =========================================================
@@ -400,9 +408,265 @@ nav a:hover {
     box-shadow: 6px 6px 0 var(---rosa);
 }
 
+/* =========================================================
+   10. PROJETOS
+   ========================================================= */
+/* linha em cima da lista (a de baixo de cada projeto vem do .projeto) */
+.projetos-lista {
+    border-top: 1px solid var(---roxo);
+}
+
+/* cada projeto: número | imagem | informações */
+.projeto {
+    display: grid;
+    grid-template-columns: 60px 400px 1fr;
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(---roxo);
+    color: var(---roxo);
+    text-decoration: none;
+}
+
+.projeto-numero {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* --- imagem --- */
+.projeto-img {
+    width: 90%;
+    object-fit: cover;   /* preenche o espaço sem distorcer */
+    border: 1px solid var(---roxo);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- informações --- */
+.projeto-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* categoria à esquerda, ano à direita */
+.projeto-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.projeto h2 {
+    margin: auto 0 16px;   /* auto em cima empurra título e texto para baixo */
+    padding-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.tags span {
+    padding: 6px 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    background-color: var(---ciano);
+    border: 1px solid var(---roxo);
+}
+
+/* descrição à esquerda, seta à direita */
+.projeto-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.projeto-rodape p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+.projeto-seta {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(---roxo);
+    border-radius: 50%;
+    font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- hover: imagem igual aos cards e seta ganha fundo --- */
+.projeto:hover .projeto-img {
+    transform: translateY(-8px);
+    box-shadow: 6px 6px 0 var(---rosa);
+}
+
+.projeto:hover .projeto-seta {
+    background-color: var(---roxo);
+    color: var(---branco);
+}
 
 /* =========================================================
-   10. RESPONSIVO
+   11. CONTATO
+   ========================================================= */
+.contato {
+    background-color: var(---ciano);
+    padding-bottom: 40px;
+}
+
+/* título à esquerda, formulário à direita */
+.contato-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    margin-bottom: 90px;
+}
+
+.contato-titulo h1 {
+    font-size: clamp(44px, 7vw, 90px);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+}
+
+.contato-titulo h2 {
+    font-size: clamp(40px, 7vw, 90px);
+    line-height: 1;
+    font-style: italic;
+    letter-spacing: -0.04em;
+}
+
+/* --- formulário --- */
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.form-contato label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* campos só com a linha de baixo */
+.form-contato input,
+.form-contato textarea {
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid var(---roxo);
+    background: transparent;
+    color: var(---roxo);
+    font-family: inherit;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+    outline: none;
+    border-bottom-width: 2px;
+}
+
+/* campo anti-spam: robôs preenchem, pessoas não veem */
+.form-contato .form-escondido {
+    display: none;
+}
+
+/* botão redondo */
+.form-contato button {
+    align-self: flex-end;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(---roxo);
+    border-radius: 50%;
+    background-color: var(---roxo);
+    color: var(---branco);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.form-contato button:hover {
+    background-color: var(---rosa);
+    color: var(---roxo);
+    transform: scale(1.05);
+}
+
+/* mensagem e botão lado a lado */
+#side {
+    display: flex;
+    align-items: flex-end;   /* botão alinhado com a base do campo */
+    gap: 20px;
+}
+
+/* o campo de mensagem ocupa todo o espaço que sobra */
+#side label {
+    flex: 1;
+}
+
+/* =========================================================
+   12. RODAPÉ
+   ========================================================= */
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 1px solid var(---roxo);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.rodape a {
+    color: var(---roxo);
+    text-decoration: none;
+}
+
+.rodape a:hover {
+    color: var(---rosa);
+    font-weight: 700;
+}
+
+.rodape-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+/* =========================================================
+   13. RESPONSIVO
    ========================================================= */
 
 /* ---------- TABLET (até 1024px) ---------- */
@@ -421,6 +685,12 @@ nav a:hover {
     /* habilidades: 2 cards por linha */
     .titulo-skills h1 { font-size: 64px; }
     .card:nth-child(n) { grid-column: span 6; }
+
+    /* projetos: imagem menor */
+    .projeto {
+        grid-template-columns: 40px 280px 1fr;
+        gap: 24px;
+    }
 }
 
 /* ---------- CELULAR (até 768px) ---------- */
@@ -515,10 +785,47 @@ nav a:hover {
     }
 
     .card h3 { font-size: 26px; }
+
+    /* projetos: número, imagem e texto um embaixo do outro */
+    .projeto {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 30px 0;
+    }
+
+    .projeto h2 { padding-top: 10px; }
+
+    .projeto-seta {
+        width: 46px;
+        height: 46px;
+    }
+
+    /* contato: título em cima, formulário embaixo */
+    .contato-conteudo {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .form-contato { max-width: none; }
+
+    .form-contato button {
+        width: 110px;
+        height: 110px;
+    }
+
+    /* rodapé: um item embaixo do outro */
+    .rodape {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rodape-links { gap: 20px; }
 }
 
 /* ---------- TELAS DE TOQUE ---------- */
 /* sem mouse, o hover não fica "preso" depois do toque */
 @media (hover: none) {
     .card:hover { transform: none; box-shadow: none; }
+    .projeto:hover .projeto-img { transform: none; box-shadow: none; }
 }
