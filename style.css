@@ -12,7 +12,8 @@
    10. Projetos
    11. Contato (formulário)
    12. Rodapé
-   13. Responsivo (tablet e celular)
+   13. Cursor
+   14. Responsivo (tablet e celular)
    ========================================================= */
 
 
@@ -30,6 +31,11 @@
 /* =========================================================
    2. BASE
    ========================================================= */
+
+/* scroll suave ao clicar nos links da nav */
+html {
+    scroll-behavior: smooth;
+}
 
 /* cor do texto quando é selecionado com o mouse */
 ::selection {
@@ -666,7 +672,39 @@ nav a:hover {
 }
 
 /* =========================================================
-   13. RESPONSIVO
+   13. CURSOR (círculo que segue o mouse — ver script.js)
+   ========================================================= */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    margin: -15px 0 0 -15px;   /* metade do tamanho: centraliza na ponta do mouse */
+    border: 1px solid var(---branco);
+    border-radius: 50%;
+    pointer-events: none;      /* não atrapalha cliques */
+    z-index: 9999;
+    opacity: 0;
+    transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease,
+                background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* aparece quando o mouse se mexe */
+.cursor-visivel {
+    opacity: 1;
+}
+
+/* em cima de links, botões e cards: cresce e ganha fundo rosa transparente */
+.cursor-grande {
+    width: 70px;
+    height: 70px;
+    margin: -35px 0 0 -35px;
+    background-color: color-mix(in srgb, var(---rosa) 40%, transparent);
+}
+
+/* =========================================================
+   14. RESPONSIVO
    ========================================================= */
 
 /* ---------- TABLET (até 1024px) ---------- */
