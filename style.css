@@ -107,7 +107,7 @@ section {
 .comeco {
     background-image: url(img/cloud1.png);
     background-size: cover;
-    height: 630px;
+    height: 93vh;
     margin: 0;
     padding: 0;
     position: relative;   /* referência para posicionar os círculos */
