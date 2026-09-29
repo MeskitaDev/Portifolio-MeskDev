@@ -293,6 +293,32 @@ nav a:hover {
     min-width: 0;
 }
 
+/* botões GitHub / LinkedIn / Currículo */
+.sobre-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.sobre-links a {
+    padding: 10px 18px;
+    border: 1px solid var(---roxo);
+    border-radius: 999px;
+    color: var(---roxo);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sobre-links a:hover {
+    background-color: var(---roxo);
+    color: var(---branco);
+}
+
 .colunas2 img {
     border: 1px solid var(---roxo);
     background-color: var(---ciano);
